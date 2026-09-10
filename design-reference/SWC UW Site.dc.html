@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics><meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;500;700&family=Chakra+Petch:wght@400;600;700&family=JetBrains+Mono:wght@400;700&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#f0eee9;font-family:Barlow,system-ui,sans-serif}
+a{color:#5b3fa8}a:hover{color:#8a6fd6}
+.dv-turn{padding:40px 44px 32px;border-bottom:1px solid rgba(0,0,0,.08);scroll-margin-top:16px}
+.dv-thd{display:flex;align-items:baseline;gap:10px;margin:0 0 20px}
+.dv-tid{font:600 10px ui-monospace,Menlo,monospace;padding:3px 7px;background:#1a1a1a;color:#fff;border-radius:4px;text-decoration:none}
+.dv-tname{font:600 13px/1.2 system-ui,sans-serif;color:#1a1a1a}
+.dv-opts{display:flex;flex-wrap:wrap;gap:28px;align-items:flex-start}
+.dv-opt{flex:none;display:flex;flex-direction:column;gap:9px;scroll-margin-top:16px}
+.dv-oid{font:600 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:rgba(0,0,0,.08);color:#1a1a1a;border-radius:5px;text-decoration:none}
+.dv-olabel{display:flex;align-items:baseline;gap:8px;font:400 11px/1.3 system-ui,sans-serif;color:rgba(0,0,0,.55)}
+.dv-card{max-width:100%;background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,.06);overflow:hidden}
+.dv-opt:target .dv-oid{background:#2a78d6;color:#fff}
+.dv-next{margin:22px 0 0;font:12px/1.5 system-ui,sans-serif;color:rgba(0,0,0,.5)}
+@keyframes drift{from{transform:translateY(0)}to{transform:translateY(-600px)}}
+@keyframes pulse{0%,100%{opacity:.55}50%{opacity:1}}
+@keyframes blink{0%,49%{opacity:1}50%,100%{opacity:0}}
+@keyframes starpan{from{background-position:0 0,0 0,0 0}to{background-position:0 -420px,0 -300px,0 -200px}}
+@keyframes warp{0%{transform:scaleY(1);opacity:.25}50%{transform:scaleY(2.6);opacity:.7}100%{transform:scaleY(1);opacity:.25}}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+@keyframes sweep{0%{transform:translateY(-100%)}100%{transform:translateY(400%)}}
+</style></helmet>
+
+<section class="dv-turn" id="t2">
+<div class="dv-thd"><a class="dv-tid" href="#t2">2</a><span class="dv-tname">Mascot-forward (<a class="dv-oid" href="#1c">1c</a>) crossed with the sci-fi kit — same husky, much more Star Wars</span></div>
+<div class="dv-opts">
+
+<div class="dv-opt" id="2a">
+<div class="dv-olabel"><a class="dv-oid" href="#2a">2a</a>Mascot × Hyperspace — drifting starfield, crawl intro, saber divider, holo event readout</div>
+<div class="dv-card" style="width:1120px">
+
+<div style="position:relative;background:radial-gradient(120% 90% at 50% -10%,#2a1e48 0%,#0d0917 55%,#07050d 100%);overflow:hidden">
+<div style="position:absolute;inset:-40% 0;background-image:radial-gradient(1.4px 1.4px at 14% 12%,#fff,transparent),radial-gradient(1px 1px at 38% 46%,#e6dcff,transparent),radial-gradient(1.6px 1.6px at 64% 22%,#fff,transparent),radial-gradient(1.1px 1.1px at 84% 58%,#cbb4e8,transparent),radial-gradient(1px 1px at 26% 78%,#fff,transparent),radial-gradient(1.3px 1.3px at 72% 88%,#e6dcff,transparent);background-size:auto,auto,auto,auto,auto,auto;animation:starpan 60s linear infinite;opacity:.85"></div>
+<div style="position:absolute;left:8%;top:26%;width:2px;height:80px;background:linear-gradient(180deg,transparent,#dcd2ff,transparent);animation:warp 5.5s ease-in-out infinite"></div>
+<div style="position:absolute;right:12%;top:50%;width:2px;height:60px;background:linear-gradient(180deg,transparent,#c6b3e8,transparent);animation:warp 7s ease-in-out infinite .8s"></div>
+<div style="position:absolute;left:62%;top:12%;width:2px;height:100px;background:linear-gradient(180deg,transparent,#fff,transparent);animation:warp 9s ease-in-out infinite 2s"></div>
+
+<div style="position:relative;display:flex;align-items:center;justify-content:space-between;padding:20px 44px;border-bottom:1px solid rgba(198,179,232,.13)">
+  <div style="display:flex;align-items:center;gap:12px">
+    <img src="assets/logo.png" alt="SWC UW" style="width:40px;height:40px;border-radius:50%;display:block;box-shadow:0 0 22px rgba(198,179,232,.35)">
+    <span style="font:800 17px/1 'Bricolage Grotesque',sans-serif;color:#f2ecff;letter-spacing:-.01em">Star Wars Club <span style="color:#c6b3e8">@ UW</span></span>
+  </div>
+  <div style="display:flex;align-items:center;gap:28px">
+    <a href="#2a" style="font:500 11.5px Oswald,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#d3c8ec;text-decoration:none" style-hover="color:#fff">About</a>
+    <a href="#2a" style="font:500 11.5px Oswald,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#d3c8ec;text-decoration:none" style-hover="color:#fff">Events</a>
+    <a href="#2a" style="font:500 11.5px Oswald,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#d3c8ec;text-decoration:none" style-hover="color:#fff">Officers</a>
+    <a href="#2a" style="font:500 11.5px Oswald,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#d3c8ec;text-decoration:none" style-hover="color:#fff">Contact</a>
+    <a href="#2a" style="font:600 12px Oswald,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#1b1230;background:#c6b3e8;padding:11px 22px;border-radius:999px;text-decoration:none;box-shadow:0 0 20px rgba(198,179,232,.4)" style-hover="background:#fff">Join the club</a>
+  </div>
+</div>
+
+<div style="position:relative;display:grid;grid-template-columns:1.12fr .88fr;gap:24px;align-items:center;padding:26px 44px 20px">
+  <div>
+    <div style="perspective:600px;margin-bottom:20px">
+      <div style="transform:rotateX(42deg);transform-origin:50% 100%;max-width:430px">
+        <div style="font:400 12.5px/1.75 'JetBrains Mono',monospace;letter-spacing:.05em;color:#ffe08a;text-shadow:0 0 20px rgba(255,210,120,.3)">It is a period of midterms. Rebel students, striking from a hidden base in Suzzallo, have won their first victory against the evil Empire of Group Projects…</div>
+      </div>
+    </div>
+    <h1 style="margin:0;font:800 72px/0.96 'Bricolage Grotesque',sans-serif;color:#fff;letter-spacing:-.03em;text-shadow:0 0 70px rgba(170,130,240,.35)">These are the<br>nerds you're<br><span style="color:#c6b3e8">looking for.</span></h1>
+    <p style="margin:20px 0 0;max-width:470px;font:400 16.5px/1.6 Barlow,sans-serif;color:#b7abd0">Movies, games, lightsabers, and arguments about canon. Whether you've seen everything twice or nothing at all, there's a seat for you.</p>
+    <div style="display:flex;gap:12px;margin-top:28px">
+      <a href="#2a" style="font:600 15px Barlow,sans-serif;color:#1b1230;background:#c6b3e8;padding:14px 26px;border-radius:999px;text-decoration:none;box-shadow:0 0 26px rgba(198,179,232,.35)" style-hover="background:#fff">See what we do</a>
+      <a href="#2a" style="font:600 15px Barlow,sans-serif;color:#e6dcff;border:1px solid rgba(198,179,232,.4);padding:14px 26px;border-radius:999px;text-decoration:none" style-hover="border-color:#c6b3e8">Discord</a>
+    </div>
+  </div>
+  <div style="position:relative;display:flex;justify-content:center;align-items:center">
+    <div style="position:absolute;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(198,179,232,.36),transparent 66%)"></div>
+    <div style="position:absolute;width:330px;height:330px;border-radius:50%;border:1px solid rgba(198,179,232,.22)"></div>
+    <div style="position:absolute;width:386px;height:386px;border-radius:50%;border:1px dashed rgba(198,179,232,.14)"></div>
+    <img src="assets/logo.png" alt="SWC UW husky mascot" style="position:relative;width:290px;height:290px;display:block;filter:drop-shadow(0 24px 50px rgba(0,0,0,.55));animation:floaty 7s ease-in-out infinite">
+  </div>
+</div>
+
+<div style="position:relative;height:3px;margin-top:26px;background:linear-gradient(90deg,rgba(198,179,232,0),#c6b3e8 18%,#fff 50%,#c6b3e8 82%,rgba(198,179,232,0));box-shadow:0 0 22px 3px rgba(170,130,240,.5);animation:pulse 3.6s ease-in-out infinite"></div>
+</div>
+
+<div style="background:#0e0a18;padding:16px 44px;display:flex;gap:40px;align-items:center;font:400 11px/1 'JetBrains Mono',monospace;color:#9683c4;flex-wrap:wrap">
+  <span style="color:#c6b3e8">▸ NEXT TRANSMISSION</span><span>SEP 25 · 1:00–3:00 PM</span><span>QUAD NORTH</span>
+  <span style="color:#efe9ff">LIGHTSABER ACADEMY — DAWG DAZE</span>
+  <span style="color:#c6b3e8;animation:blink 1.1s step-end infinite">█</span>
+</div>
+
+<div style="background:#c6b3e8;padding:13px 0;overflow:hidden;white-space:nowrap">
+  <div style="display:inline-flex;animation:marquee 26s linear infinite;font:800 15px 'Bricolage Grotesque',sans-serif;color:#2a1f42;letter-spacing:.04em">
+    <span style="padding-right:24px">MOVIE NIGHTS ✦ GAME NIGHTS ✦ LIGHTSABER MEETS ✦ DEBATE NIGHTS ✦ TRIVIA ✦ MAY THE 4TH ✦&nbsp;</span>
+    <span style="padding-right:24px">MOVIE NIGHTS ✦ GAME NIGHTS ✦ LIGHTSABER MEETS ✦ DEBATE NIGHTS ✦ TRIVIA ✦ MAY THE 4TH ✦&nbsp;</span>
+  </div>
+</div>
+
+<div style="background:#faf7ff;padding:52px 44px 58px">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:center">
+    <div>
+      <div style="font:600 12px Barlow,sans-serif;letter-spacing:.2em;color:#8a76b8;text-transform:uppercase;margin-bottom:10px">Next up</div>
+      <h2 style="margin:0;font:800 42px/1.05 'Bricolage Grotesque',sans-serif;color:#241a3a;letter-spacing:-.02em">Lightsaber Training<br>at Dawg Daze</h2>
+      <div style="display:flex;gap:10px;margin:20px 0 16px;flex-wrap:wrap">
+        <span style="background:#eee6fb;color:#4a3878;font:600 13px Barlow,sans-serif;padding:7px 14px;border-radius:999px">Sep 25 · 1–3 PM</span>
+        <span style="background:#eee6fb;color:#4a3878;font:600 13px Barlow,sans-serif;padding:7px 14px;border-radius:999px">Quad North</span>
+        <span style="background:#241a3a;color:#e6dcff;font:600 13px Barlow,sans-serif;padding:7px 14px;border-radius:999px">No experience needed</span>
+      </div>
+      <p style="margin:0;max-width:460px;font:400 15.5px/1.65 Barlow,sans-serif;color:#5c5175">Learn the art of lightsaber combat at Lightsaber Academy — Jedi and Sith-inspired stances, strikes, movement, and choreography, plus the lore behind iconic combat forms.</p>
+      <a href="#2a" style="display:inline-block;margin-top:22px;font:600 15px Barlow,sans-serif;color:#fff;background:#4a3878;padding:13px 24px;border-radius:999px;text-decoration:none" style-hover="background:#2a1f42">I'll be there</a>
+    </div>
+    <img src="assets/poster-jep.jpg" alt="Recent club poster" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:18px;border:1px solid #e3d8f6;display:block">
+  </div>
+</div>
+
+</div>
+</div>
+
+<div class="dv-opt" id="2b">
+<div class="dv-olabel"><a class="dv-oid" href="#2b">2b</a>Mascot × Datapad — mascot in a holo-projector ring, live event console, scanline UI</div>
+<div class="dv-card" style="width:1120px">
+
+<div style="position:relative;background:linear-gradient(180deg,#0a0714 0%,#120c22 60%,#0a0714 100%);overflow:hidden">
+<div style="position:absolute;inset:0;background-image:radial-gradient(1.2px 1.2px at 18% 24%,#fff,transparent),radial-gradient(1px 1px at 44% 70%,#e0d3ff,transparent),radial-gradient(1.4px 1.4px at 72% 34%,#fff,transparent),radial-gradient(1px 1px at 90% 80%,#cbb4e8,transparent);opacity:.75"></div>
+<div style="position:absolute;inset:0;background:repeating-linear-gradient(180deg,rgba(198,179,232,.045) 0 1px,transparent 1px 4px);pointer-events:none"></div>
+<div style="position:absolute;inset:0;background-image:linear-gradient(rgba(198,179,232,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(198,179,232,.05) 1px,transparent 1px);background-size:64px 64px;mask-image:radial-gradient(80% 60% at 50% 40%,#000,transparent)"></div>
+
+<div style="position:relative;display:flex;align-items:center;justify-content:space-between;padding:16px 40px;border-bottom:1px solid rgba(198,179,232,.16)">
+  <div style="display:flex;align-items:center;gap:11px">
+    <img src="assets/logo.png" alt="SWC UW" style="width:36px;height:36px;border-radius:50%;display:block;box-shadow:0 0 0 1px rgba(198,179,232,.4)">
+    <span style="font:800 15px/1 'Bricolage Grotesque',sans-serif;color:#f2ecff">Star Wars Club <span style="color:#c6b3e8">@ UW</span></span>
+    <span style="font:400 9.5px 'JetBrains Mono',monospace;letter-spacing:.22em;color:#8a76b8;border-left:1px solid rgba(198,179,232,.25);padding-left:11px;margin-left:4px">RSO // SEATTLE SECTOR</span>
+  </div>
+  <div style="display:flex;align-items:center;gap:6px">
+    <a href="#2b" style="font:600 11px 'Chakra Petch',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#c2b3dd;text-decoration:none;padding:8px 13px;border:1px solid transparent" style-hover="color:#fff;border-color:rgba(198,179,232,.45)">01 About</a>
+    <a href="#2b" style="font:600 11px 'Chakra Petch',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#c2b3dd;text-decoration:none;padding:8px 13px;border:1px solid transparent" style-hover="color:#fff;border-color:rgba(198,179,232,.45)">02 Events</a>
+    <a href="#2b" style="font:600 11px 'Chakra Petch',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#c2b3dd;text-decoration:none;padding:8px 13px;border:1px solid transparent" style-hover="color:#fff;border-color:rgba(198,179,232,.45)">03 Officers</a>
+    <a href="#2b" style="font:700 11px 'Chakra Petch',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#120c22;background:#c6b3e8;text-decoration:none;padding:10px 18px;clip-path:polygon(8px 0,100% 0,100% calc(100% - 8px),calc(100% - 8px) 100%,0 100%,0 8px)" style-hover="background:#fff">Join →</a>
+  </div>
+</div>
+
+<div style="position:relative;display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:center;padding:46px 40px 50px">
+  <div>
+    <div style="font:400 10.5px 'JetBrains Mono',monospace;letter-spacing:.32em;color:#9b86cf;margin-bottom:18px">◤ HOLONET FEED · CH.977 · UW-SEA</div>
+    <h1 style="margin:0;font:800 62px/0.98 'Bricolage Grotesque',sans-serif;color:#fff;letter-spacing:-.03em">These are the<br>nerds you're<br><span style="color:#c6b3e8">looking for.</span></h1>
+    <p style="margin:20px 0 0;max-width:430px;font:400 16px/1.6 Barlow,sans-serif;color:#b0a3ca">Movies, games, lightsabers, and arguments about canon. Every other week, all quarter, all welcome.</p>
+
+    <div style="margin-top:28px;border:1px solid rgba(198,179,232,.32);background:linear-gradient(160deg,rgba(198,179,232,.1),rgba(198,179,232,.02));padding:22px 24px 20px;clip-path:polygon(14px 0,100% 0,100% calc(100% - 14px),calc(100% - 14px) 100%,0 100%,0 14px)">
+      <div style="display:flex;justify-content:space-between;font:400 10px 'JetBrains Mono',monospace;letter-spacing:.2em;color:#c6b3e8;margin-bottom:14px"><span>NEXT EVENT // 001</span><span style="animation:pulse 2s ease-in-out infinite">● LIVE</span></div>
+      <div style="font:700 26px/1.1 'Chakra Petch',sans-serif;color:#f2ecff;text-transform:uppercase">Lightsaber Academy</div>
+      <div style="height:1px;background:rgba(198,179,232,.28);margin:14px 0"></div>
+      <div style="display:grid;grid-template-columns:auto 1fr;gap:6px 18px;font:400 12px/1.5 'JetBrains Mono',monospace;color:#c2b3dd">
+        <span style="color:#8a76b8">DATE</span><span>SEP 25 · 1:00–3:00 PM</span>
+        <span style="color:#8a76b8">LOC</span><span>QUAD NORTH · DAWG DAZE</span>
+        <span style="color:#8a76b8">REQ</span><span>NO EXPERIENCE. NO FORCE SENSITIVITY.</span>
+      </div>
+      <a href="#2b" style="display:inline-block;margin-top:18px;font:700 11.5px 'Chakra Petch',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#120c22;background:#c6b3e8;padding:11px 20px;text-decoration:none" style-hover="background:#fff">Add to calendar</a>
+    </div>
+  </div>
+
+  <div style="position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:10px 0">
+    <div style="position:relative;display:flex;align-items:center;justify-content:center">
+      <div style="position:absolute;width:330px;height:330px;border-radius:50%;background:radial-gradient(circle,rgba(198,179,232,.3),transparent 68%)"></div>
+      <div style="position:absolute;width:352px;height:352px;border-radius:50%;border:1px solid rgba(198,179,232,.25)"></div>
+      <div style="position:absolute;top:0;left:50%;transform:translateX(-50%);width:352px;height:14px;background:linear-gradient(90deg,transparent,rgba(198,179,232,.5),transparent);filter:blur(3px);animation:sweep 4.5s linear infinite"></div>
+      <img src="assets/logo.png" alt="SWC UW husky mascot" style="position:relative;width:300px;height:300px;display:block;filter:drop-shadow(0 0 40px rgba(160,120,235,.5));animation:floaty 8s ease-in-out infinite">
+    </div>
+    <div style="margin-top:18px;width:300px;height:16px;border-radius:50%;background:radial-gradient(ellipse,rgba(198,179,232,.4),transparent 70%)"></div>
+    <div style="font:400 10px 'JetBrains Mono',monospace;letter-spacing:.28em;color:#8a76b8;margin-top:6px">PROJECTION STABLE · 99.4%</div>
+  </div>
+</div>
+</div>
+
+<div style="background:#0e0a18;border-top:1px solid rgba(198,179,232,.14);padding:0;display:grid;grid-template-columns:repeat(4,1fr)">
+  <div style="padding:20px 24px;border-right:1px solid rgba(198,179,232,.12)"><div style="font:400 9.5px 'JetBrains Mono',monospace;letter-spacing:.22em;color:#8a76b8">MEETINGS</div><div style="font:700 15px 'Chakra Petch',sans-serif;color:#efe9ff;margin-top:6px;text-transform:uppercase">Every other week</div></div>
+  <div style="padding:20px 24px;border-right:1px solid rgba(198,179,232,.12)"><div style="font:400 9.5px 'JetBrains Mono',monospace;letter-spacing:.22em;color:#8a76b8">MEMBERS</div><div style="font:700 15px 'Chakra Petch',sans-serif;color:#efe9ff;margin-top:6px;text-transform:uppercase">All welcome</div></div>
+  <div style="padding:20px 24px;border-right:1px solid rgba(198,179,232,.12)"><div style="font:400 9.5px 'JetBrains Mono',monospace;letter-spacing:.22em;color:#8a76b8">COMMS</div><div style="font:700 15px 'Chakra Petch',sans-serif;color:#efe9ff;margin-top:6px;text-transform:uppercase">Discord · @uwstarwars</div></div>
+  <div style="padding:20px 24px"><div style="font:400 9.5px 'JetBrains Mono',monospace;letter-spacing:.22em;color:#8a76b8">DUES</div><div style="font:700 15px 'Chakra Petch',sans-serif;color:#efe9ff;margin-top:6px;text-transform:uppercase">None</div></div>
+</div>
+
+<div style="background:#f7f3ff;padding:50px 40px 56px">
+  <div style="display:flex;align-items:baseline;gap:14px;margin-bottom:24px">
+    <h2 style="margin:0;font:800 34px/1 'Bricolage Grotesque',sans-serif;color:#241a3a;letter-spacing:-.02em">What a meeting looks like</h2>
+    <span style="font:400 11px 'JetBrains Mono',monospace;color:#7a68a0;letter-spacing:.18em">PICK YOUR PATH</span>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px">
+    <div style="background:#fff;border:1px solid #e3d8f6;border-radius:14px;padding:22px 20px 24px" style-hover="border-color:#c6b3e8;box-shadow:0 10px 30px rgba(90,60,160,.12)">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:14px"><span style="font:700 10px 'JetBrains Mono',monospace;letter-spacing:.18em;color:#4a3878;background:#eee6fb;padding:5px 9px;clip-path:polygon(5px 0,100% 0,100% calc(100% - 5px),calc(100% - 5px) 100%,0 100%,0 5px)">01</span><span style="flex:1;height:1px;background:#e3d8f6"></span></div>
+      <div style="font:600 17px/1.2 'Bricolage Grotesque',sans-serif;color:#241a3a">Movie nights</div>
+      <p style="margin:8px 0 0;font:400 13.5px/1.55 Barlow,sans-serif;color:#5c5175">Saga rewatches, deep cuts, and spirited prequel defenses.</p>
+    </div>
+    <div style="background:#fff;border:1px solid #e3d8f6;border-radius:14px;padding:22px 20px 24px" style-hover="border-color:#c6b3e8;box-shadow:0 10px 30px rgba(90,60,160,.12)">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:14px"><span style="font:700 10px 'JetBrains Mono',monospace;letter-spacing:.18em;color:#4a3878;background:#eee6fb;padding:5px 9px;clip-path:polygon(5px 0,100% 0,100% calc(100% - 5px),calc(100% - 5px) 100%,0 100%,0 5px)">02</span><span style="flex:1;height:1px;background:#e3d8f6"></span></div>
+      <div style="font:600 17px/1.2 'Bricolage Grotesque',sans-serif;color:#241a3a">Lightsaber meets</div>
+      <p style="margin:8px 0 0;font:400 13.5px/1.55 Barlow,sans-serif;color:#5c5175">Stances, strikes, choreography, and combat-form lore.</p>
+    </div>
+    <div style="background:#fff;border:1px solid #e3d8f6;border-radius:14px;padding:22px 20px 24px" style-hover="border-color:#c6b3e8;box-shadow:0 10px 30px rgba(90,60,160,.12)">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:14px"><span style="font:700 10px 'JetBrains Mono',monospace;letter-spacing:.18em;color:#4a3878;background:#eee6fb;padding:5px 9px;clip-path:polygon(5px 0,100% 0,100% calc(100% - 5px),calc(100% - 5px) 100%,0 100%,0 5px)">03</span><span style="flex:1;height:1px;background:#e3d8f6"></span></div>
+      <div style="font:600 17px/1.2 'Bricolage Grotesque',sans-serif;color:#241a3a">Game nights</div>
+      <p style="margin:8px 0 0;font:400 13.5px/1.55 Barlow,sans-serif;color:#5c5175">Trivia, charades, tabletop, and general chaos.</p>
+    </div>
+    <div style="background:#fff;border:1px solid #e3d8f6;border-radius:14px;padding:22px 20px 24px" style-hover="border-color:#c6b3e8;box-shadow:0 10px 30px rgba(90,60,160,.12)">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:14px"><span style="font:700 10px 'JetBrains Mono',monospace;letter-spacing:.18em;color:#4a3878;background:#eee6fb;padding:5px 9px;clip-path:polygon(5px 0,100% 0,100% calc(100% - 5px),calc(100% - 5px) 100%,0 100%,0 5px)">04</span><span style="flex:1;height:1px;background:#e3d8f6"></span></div>
+      <div style="font:600 17px/1.2 'Bricolage Grotesque',sans-serif;color:#241a3a">Debate nights</div>
+      <p style="margin:8px 0 0;font:400 13.5px/1.55 Barlow,sans-serif;color:#5c5175">Best duel. Worst plan. Who shot first.</p>
+    </div>
+  </div>
+</div>
+
+</div>
+</div>
+
+</div>
+<p class="dv-next">Try next: "build out <a class="dv-oid" href="#2a">2a</a> as the full site" · "<a class="dv-oid" href="#2b">2b</a> but with the crawl from <a class="dv-oid" href="#2a">2a</a>" · "turn up the motion"</p>
+</section>
+
+<section class="dv-turn" id="t1">
+<div class="dv-thd"><a class="dv-tid" href="#t1">1</a><span class="dv-tname">Homepage vibes — split concept (dark cinematic top → warm hand-drawn below)</span></div>
+<div class="dv-opts">
+
+<div class="dv-opt" id="1a">
+<div class="dv-olabel"><a class="dv-oid" href="#1a">1a</a>Hyperspace — full-bleed starfield, condensed caps, saber divider</div>
+<div class="dv-card" style="width:1120px">
+
+<div style="position:relative;background:#07050c;overflow:hidden">
+<div style="position:absolute;inset:-50% -10% ;background-image:radial-gradient(1.4px 1.4px at 12% 18%,#fff,transparent),radial-gradient(1.1px 1.1px at 32% 62%,#e6dcff,transparent),radial-gradient(1.6px 1.6px at 58% 28%,#fff,transparent),radial-gradient(1px 1px at 76% 74%,#cbb4e8,transparent),radial-gradient(1.3px 1.3px at 88% 40%,#fff,transparent),radial-gradient(1px 1px at 22% 86%,#fff,transparent),radial-gradient(1.2px 1.2px at 46% 12%,#bfa8e6,transparent),radial-gradient(1px 1px at 66% 92%,#fff,transparent);opacity:.85"></div>
+<div style="position:absolute;left:50%;top:-20%;width:900px;height:900px;transform:translateX(-50%);background:radial-gradient(circle,rgba(160,120,235,.30),rgba(160,120,235,0) 62%)"></div>
+
+<div style="position:relative;display:flex;align-items:center;justify-content:space-between;padding:20px 40px;border-bottom:1px solid rgba(198,179,232,.14)">
+  <div style="display:flex;align-items:center;gap:12px">
+    <img src="assets/logo.png" alt="SWC UW" style="width:42px;height:42px;border-radius:50%;display:block">
+    <div style="font:500 13px/1 Oswald,sans-serif;letter-spacing:.22em;color:#e9e2f7;text-transform:uppercase">Star Wars Club<div style="font:400 9.5px/1.6 'JetBrains Mono',monospace;letter-spacing:.28em;color:#a892d4">UNIV. OF WASHINGTON</div></div>
+  </div>
+  <div style="display:flex;align-items:center;gap:30px">
+    <a href="#1a" style="font:500 11.5px Oswald,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#cfc3e8;text-decoration:none" style-hover="color:#fff">About</a>
+    <a href="#1a" style="font:500 11.5px Oswald,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#cfc3e8;text-decoration:none" style-hover="color:#fff">Events</a>
+    <a href="#1a" style="font:500 11.5px Oswald,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#cfc3e8;text-decoration:none" style-hover="color:#fff">Officers</a>
+    <a href="#1a" style="font:500 11.5px Oswald,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#cfc3e8;text-decoration:none" style-hover="color:#fff">Contact</a>
+    <a href="#1a" style="font:600 11.5px Oswald,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#0a0710;background:#c6b3e8;padding:9px 18px;border-radius:2px;text-decoration:none;box-shadow:0 0 18px rgba(198,179,232,.35)" style-hover="background:#fff">Join us</a>
+  </div>
+</div>
+
+<div style="position:relative;padding:78px 40px 64px;text-align:center">
+  <div style="font:400 10px/1 'JetBrains Mono',monospace;letter-spacing:.4em;color:#8e78c4;margin-bottom:26px">A REGISTERED STUDENT ORGANIZATION · SECTOR: SEATTLE</div>
+  <h1 style="margin:0;font:700 92px/0.94 Oswald,sans-serif;letter-spacing:-.005em;text-transform:uppercase;color:#fff;text-shadow:0 0 60px rgba(170,130,240,.45)">A galaxy of fans,<br><span style="color:#c6b3e8">one campus.</span></h1>
+  <p style="margin:26px auto 0;max-width:620px;font:400 17px/1.65 Barlow,sans-serif;color:#b6a9cf">Movie nights, game nights, lightsaber meets, and debates that get far too heated. Lifelong fans and total newcomers alike — no Force sensitivity required.</p>
+  <div style="display:flex;gap:14px;justify-content:center;margin-top:34px">
+    <a href="#1a" style="font:600 13px Oswald,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#07050c;background:#c6b3e8;padding:15px 30px;border-radius:2px;text-decoration:none;box-shadow:0 0 26px rgba(198,179,232,.4)" style-hover="background:#fff">What we do</a>
+    <a href="#1a" style="font:600 13px Oswald,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#e9e2f7;border:1px solid rgba(198,179,232,.45);padding:15px 30px;border-radius:2px;text-decoration:none" style-hover="border-color:#c6b3e8;color:#fff">Join the Discord</a>
+  </div>
+</div>
+
+<div style="position:relative;height:3px;background:linear-gradient(90deg,rgba(198,179,232,0),#c6b3e8 20%,#fff 50%,#c6b3e8 80%,rgba(198,179,232,0));box-shadow:0 0 22px 3px rgba(170,130,240,.55);animation:pulse 3.4s ease-in-out infinite"></div>
+</div>
+
+<div style="background:#0e0a16;padding:18px 40px;display:flex;gap:44px;align-items:center;font:400 11px/1 'JetBrains Mono',monospace;color:#8e78c4;border-bottom:1px solid rgba(198,179,232,.1)">
+  <span style="color:#c6b3e8">▸ NEXT TRANSMISSION</span>
+  <span>SEP 25 · 1:00–3:00 PM</span>
+  <span>QUAD NORTH</span>
+  <span style="color:#e9e2f7">LIGHTSABER ACADEMY — DAWG DAZE</span>
+  <span style="color:#c6b3e8;animation:blink 1.1s step-end infinite">█</span>
+</div>
+
+<div style="background:#f3effa;padding:52px 40px 60px">
+  <div style="display:flex;align-items:baseline;gap:14px;margin-bottom:26px">
+    <h2 style="margin:0;font:800 34px/1 'Bricolage Grotesque',sans-serif;color:#2a1f42">What a meeting looks like</h2>
+    <span style="font:400 11px 'JetBrains Mono',monospace;color:#7a68a0;letter-spacing:.18em">EVERY OTHER WEEK</span>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:18px">
+    <div style="background:#fff;border:1px solid #e0d6f2;border-radius:14px;padding:22px 20px 24px" style-hover="border-color:#c6b3e8;box-shadow:0 10px 30px rgba(90,60,160,.12)">
+      <div style="width:34px;height:34px;border-radius:50%;background:#c6b3e8;margin-bottom:16px"></div>
+      <div style="font:600 18px/1.2 'Bricolage Grotesque',sans-serif;color:#2a1f42">Movie nights</div>
+      <p style="margin:8px 0 0;font:400 14px/1.55 Barlow,sans-serif;color:#5c5175">Full saga rewatches, deep cuts, and the occasional heated defense of the prequels.</p>
+    </div>
+    <div style="background:#fff;border:1px solid #e0d6f2;border-radius:14px;padding:22px 20px 24px" style-hover="border-color:#c6b3e8;box-shadow:0 10px 30px rgba(90,60,160,.12)">
+      <div style="width:34px;height:34px;border-radius:50%;background:#9d86d4;margin-bottom:16px"></div>
+      <div style="font:600 18px/1.2 'Bricolage Grotesque',sans-serif;color:#2a1f42">Lightsaber meets</div>
+      <p style="margin:8px 0 0;font:400 14px/1.55 Barlow,sans-serif;color:#5c5175">Stances, strikes, choreography, and the lore behind the classic combat forms.</p>
+    </div>
+    <div style="background:#fff;border:1px solid #e0d6f2;border-radius:14px;padding:22px 20px 24px" style-hover="border-color:#c6b3e8;box-shadow:0 10px 30px rgba(90,60,160,.12)">
+      <div style="width:34px;height:34px;border-radius:50%;background:#6f5aa8;margin-bottom:16px"></div>
+      <div style="font:600 18px/1.2 'Bricolage Grotesque',sans-serif;color:#2a1f42">Game nights</div>
+      <p style="margin:8px 0 0;font:400 14px/1.55 Barlow,sans-serif;color:#5c5175">Trivia, charades, tabletop, and whatever chaos the Activities Manager invents.</p>
+    </div>
+    <div style="background:#fff;border:1px solid #e0d6f2;border-radius:14px;padding:22px 20px 24px" style-hover="border-color:#c6b3e8;box-shadow:0 10px 30px rgba(90,60,160,.12)">
+      <div style="width:34px;height:34px;border-radius:50%;background:#453266;margin-bottom:16px"></div>
+      <div style="font:600 18px/1.2 'Bricolage Grotesque',sans-serif;color:#2a1f42">Debate nights</div>
+      <p style="margin:8px 0 0;font:400 14px/1.55 Barlow,sans-serif;color:#5c5175">Best duel. Worst plan. Who shot first. Nobody has ever left satisfied.</p>
+    </div>
+  </div>
+</div>
+
+</div>
+</div>
+
+<div class="dv-opt" id="1b">
+<div class="dv-olabel"><a class="dv-oid" href="#1b">1b</a>Datapad — crawl intro + holo panel, terminal-flavored, split hero</div>
+<div class="dv-card" style="width:1120px">
+
+<div style="position:relative;background:#05060b;overflow:hidden">
+<div style="position:absolute;inset:0;background-image:radial-gradient(1.2px 1.2px at 18% 24%,#fff,transparent),radial-gradient(1px 1px at 44% 70%,#a9e8ff,transparent),radial-gradient(1.4px 1.4px at 72% 34%,#fff,transparent),radial-gradient(1px 1px at 90% 80%,#cbb4e8,transparent),radial-gradient(1px 1px at 8% 62%,#fff,transparent);opacity:.7"></div>
+<div style="position:absolute;inset:0;background:repeating-linear-gradient(180deg,rgba(160,220,255,.05) 0 1px,transparent 1px 4px);pointer-events:none"></div>
+
+<div style="position:relative;display:flex;align-items:center;justify-content:space-between;padding:16px 36px;border-bottom:1px solid rgba(120,200,240,.16)">
+  <div style="display:flex;align-items:center;gap:11px">
+    <img src="assets/logo.png" alt="SWC UW" style="width:36px;height:36px;border-radius:50%;display:block;box-shadow:0 0 0 1px rgba(140,210,250,.35)">
+    <span style="font:700 12px/1 'Chakra Petch',sans-serif;letter-spacing:.3em;color:#dff2ff;text-transform:uppercase">SWC · UW</span>
+  </div>
+  <div style="display:flex;align-items:center;gap:8px">
+    <a href="#1b" style="font:600 11px 'Chakra Petch',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#9fc4d8;text-decoration:none;padding:8px 13px;border:1px solid transparent" style-hover="color:#dff2ff;border-color:rgba(140,210,250,.4)">01 About</a>
+    <a href="#1b" style="font:600 11px 'Chakra Petch',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#9fc4d8;text-decoration:none;padding:8px 13px;border:1px solid transparent" style-hover="color:#dff2ff;border-color:rgba(140,210,250,.4)">02 Events</a>
+    <a href="#1b" style="font:600 11px 'Chakra Petch',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#9fc4d8;text-decoration:none;padding:8px 13px;border:1px solid transparent" style-hover="color:#dff2ff;border-color:rgba(140,210,250,.4)">03 Officers</a>
+    <a href="#1b" style="font:600 11px 'Chakra Petch',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#05060b;background:#7fd8ff;text-decoration:none;padding:9px 16px;clip-path:polygon(8px 0,100% 0,100% calc(100% - 8px),calc(100% - 8px) 100%,0 100%,0 8px)" style-hover="background:#dff2ff">Join →</a>
+  </div>
+</div>
+
+<div style="position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:44px;padding:56px 36px 60px;align-items:center">
+  <div>
+    <div style="perspective:520px;margin-bottom:26px">
+      <div style="transform:rotateX(34deg);transform-origin:50% 100%;text-align:center">
+        <div style="font:700 13px/1.9 'Chakra Petch',sans-serif;letter-spacing:.16em;color:#c6b3e8;text-transform:uppercase">Episode IV.V</div>
+        <div style="font:700 26px/1.35 'Chakra Petch',sans-serif;color:#ffe98a;text-transform:uppercase;text-shadow:0 0 24px rgba(255,220,120,.35)">It is a period of civil war<br>in the Quad…</div>
+      </div>
+    </div>
+    <h1 style="margin:0;font:700 54px/1.05 'Chakra Petch',sans-serif;color:#eaf6ff;text-transform:uppercase;letter-spacing:-.01em">Find your<br>squadron.</h1>
+    <p style="margin:18px 0 0;max-width:420px;font:400 16px/1.6 Barlow,sans-serif;color:#93a8b8">A fun space where fans meet fans — and where anyone curious about Star Wars gets a way in. Meetings every other week.</p>
+    <div style="display:flex;gap:22px;margin-top:28px;font:400 11px 'JetBrains Mono',monospace;color:#6f8798">
+      <span>▸ uwstarwars@uw.edu</span><span>▸ @uwstarwars</span>
+    </div>
+  </div>
+
+  <div style="position:relative;border:1px solid rgba(127,216,255,.35);background:linear-gradient(160deg,rgba(127,216,255,.09),rgba(127,216,255,.02));padding:26px 26px 24px;clip-path:polygon(16px 0,100% 0,100% calc(100% - 16px),calc(100% - 16px) 100%,0 100%,0 16px);box-shadow:0 0 50px rgba(90,180,240,.14) inset">
+    <div style="display:flex;justify-content:space-between;font:400 10px 'JetBrains Mono',monospace;letter-spacing:.2em;color:#7fd8ff;margin-bottom:18px"><span>NEXT EVENT // 001</span><span style="animation:pulse 2s ease-in-out infinite">● LIVE</span></div>
+    <div style="font:700 30px/1.15 'Chakra Petch',sans-serif;color:#eaf6ff;text-transform:uppercase">Lightsaber<br>Academy</div>
+    <div style="height:1px;background:rgba(127,216,255,.3);margin:18px 0"></div>
+    <div style="display:grid;grid-template-columns:auto 1fr;gap:8px 18px;font:400 12.5px/1.5 'JetBrains Mono',monospace;color:#a9c6d6">
+      <span style="color:#6f8798">DATE</span><span>SEP 25 · 1:00–3:00 PM</span>
+      <span style="color:#6f8798">LOC</span><span>QUAD NORTH</span>
+      <span style="color:#6f8798">TAG</span><span>DAWG DAZE</span>
+      <span style="color:#6f8798">REQ</span><span>NONE — ALL WELCOME</span>
+    </div>
+    <p style="margin:18px 0 0;font:400 13.5px/1.6 Barlow,sans-serif;color:#93a8b8">Practice Jedi and Sith-inspired stances, strikes, movement, and choreography while exploring the lore behind iconic combat forms.</p>
+    <a href="#1b" style="display:inline-block;margin-top:20px;font:700 11.5px 'Chakra Petch',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#05060b;background:#7fd8ff;padding:11px 20px;text-decoration:none" style-hover="background:#dff2ff">Add to calendar</a>
+  </div>
+</div>
+</div>
+
+<div style="background:#efe9f7;padding:48px 36px 56px">
+  <div style="font:400 10.5px 'JetBrains Mono',monospace;letter-spacing:.28em;color:#7a68a0;margin-bottom:8px">ARCHIVE // PAST TRANSMISSIONS</div>
+  <h2 style="margin:0 0 24px;font:800 32px/1 'Bricolage Grotesque',sans-serif;color:#241a3a">Our posters do the talking</h2>
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px">
+    <img src="assets/poster-lastmeeting.jpg" alt="Final meeting of the year" style="width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:10px;border:1px solid #ddd0f0;display:block">
+    <img src="assets/poster-may4th.jpg" alt="May the 4th" style="width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:10px;border:1px solid #ddd0f0;display:block">
+    <img src="assets/poster-tesb.jpg" alt="Empire Strikes Back movie night" style="width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:10px;border:1px solid #ddd0f0;display:block">
+    <img src="assets/poster-anh.jpg" alt="A New Hope" style="width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:10px;border:1px solid #ddd0f0;display:block">
+  </div>
+</div>
+
+</div>
+</div>
+
+<div class="dv-opt" id="1c">
+<div class="dv-olabel"><a class="dv-oid" href="#1c">1c</a>Mascot-forward — logo as hero character, warm lavender world, playful but grown</div>
+<div class="dv-card" style="width:1120px">
+
+<div style="position:relative;background:radial-gradient(120% 90% at 50% 0%,#241a3c 0%,#0d0917 60%,#0a0713 100%);overflow:hidden">
+<div style="position:absolute;inset:0;background-image:radial-gradient(1.3px 1.3px at 14% 30%,#fff,transparent),radial-gradient(1px 1px at 38% 76%,#e6dcff,transparent),radial-gradient(1.5px 1.5px at 64% 22%,#fff,transparent),radial-gradient(1.1px 1.1px at 84% 58%,#cbb4e8,transparent);opacity:.8"></div>
+
+<div style="position:relative;display:flex;align-items:center;justify-content:space-between;padding:22px 44px">
+  <span style="font:800 17px/1 'Bricolage Grotesque',sans-serif;color:#f2ecff;letter-spacing:-.01em">Star Wars Club <span style="color:#c6b3e8">@ UW</span></span>
+  <div style="display:flex;align-items:center;gap:26px">
+    <a href="#1c" style="font:500 14px Barlow,sans-serif;color:#d8cdf0;text-decoration:none" style-hover="color:#fff">About</a>
+    <a href="#1c" style="font:500 14px Barlow,sans-serif;color:#d8cdf0;text-decoration:none" style-hover="color:#fff">Events</a>
+    <a href="#1c" style="font:500 14px Barlow,sans-serif;color:#d8cdf0;text-decoration:none" style-hover="color:#fff">Officers</a>
+    <a href="#1c" style="font:600 14px Barlow,sans-serif;color:#22163d;background:#c6b3e8;padding:10px 20px;border-radius:999px;text-decoration:none" style-hover="background:#fff">Join the club</a>
+  </div>
+</div>
+
+<div style="position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:30px;align-items:center;padding:34px 44px 56px">
+  <div>
+    <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(198,179,232,.14);border:1px solid rgba(198,179,232,.3);padding:6px 14px;border-radius:999px;font:500 12px Barlow,sans-serif;color:#d8cdf0;margin-bottom:22px">
+      <span style="width:7px;height:7px;border-radius:50%;background:#8fe86b;display:inline-block"></span>New members welcome all quarter
+    </div>
+    <h1 style="margin:0;font:800 74px/0.98 'Bricolage Grotesque',sans-serif;color:#fff;letter-spacing:-.03em">These are the<br>nerds you're<br><span style="color:#c6b3e8">looking for.</span></h1>
+    <p style="margin:22px 0 0;max-width:480px;font:400 17px/1.6 Barlow,sans-serif;color:#b7abd0">Movies, games, lightsabers, and arguments about canon. Whether you've seen everything twice or nothing at all, there's a seat for you.</p>
+    <div style="display:flex;gap:12px;margin-top:30px">
+      <a href="#1c" style="font:600 15px Barlow,sans-serif;color:#22163d;background:#c6b3e8;padding:14px 26px;border-radius:999px;text-decoration:none" style-hover="background:#fff">See what we do</a>
+      <a href="#1c" style="font:600 15px Barlow,sans-serif;color:#e6dcff;border:1px solid rgba(198,179,232,.4);padding:14px 26px;border-radius:999px;text-decoration:none" style-hover="border-color:#c6b3e8">Discord</a>
+    </div>
+  </div>
+  <div style="position:relative;display:flex;justify-content:center">
+    <div style="position:absolute;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(198,179,232,.34),transparent 65%)"></div>
+    <img src="assets/logo.png" alt="SWC UW husky mascot" style="position:relative;width:330px;height:330px;display:block;filter:drop-shadow(0 24px 50px rgba(0,0,0,.5))">
+  </div>
+</div>
+</div>
+
+<div style="background:#c6b3e8;padding:14px 0;overflow:hidden;white-space:nowrap;font:800 15px 'Bricolage Grotesque',sans-serif;color:#2a1f42;letter-spacing:.04em">
+  <span>MOVIE NIGHTS ✦ GAME NIGHTS ✦ LIGHTSABER MEETS ✦ DEBATE NIGHTS ✦ TRIVIA ✦ MAY THE 4TH ✦ MOVIE NIGHTS ✦ GAME NIGHTS ✦ LIGHTSABER MEETS ✦ DEBATE NIGHTS</span>
+</div>
+
+<div style="background:#faf7ff;padding:52px 44px 58px">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:center">
+    <div>
+      <div style="font:600 12px Barlow,sans-serif;letter-spacing:.2em;color:#8a76b8;text-transform:uppercase;margin-bottom:10px">Next up</div>
+      <h2 style="margin:0;font:800 42px/1.05 'Bricolage Grotesque',sans-serif;color:#241a3a;letter-spacing:-.02em">Lightsaber Training<br>at Dawg Daze</h2>
+      <div style="display:flex;gap:10px;margin:20px 0 16px;flex-wrap:wrap">
+        <span style="background:#eee6fb;color:#4a3878;font:600 13px Barlow,sans-serif;padding:7px 14px;border-radius:999px">Sep 25 · 1–3 PM</span>
+        <span style="background:#eee6fb;color:#4a3878;font:600 13px Barlow,sans-serif;padding:7px 14px;border-radius:999px">Quad North</span>
+        <span style="background:#241a3a;color:#e6dcff;font:600 13px Barlow,sans-serif;padding:7px 14px;border-radius:999px">No experience needed</span>
+      </div>
+      <p style="margin:0;max-width:460px;font:400 15.5px/1.65 Barlow,sans-serif;color:#5c5175">Learn the art of lightsaber combat at Lightsaber Academy — Jedi and Sith-inspired stances, strikes, movement, and choreography, plus the lore behind iconic combat forms.</p>
+      <a href="#1c" style="display:inline-block;margin-top:22px;font:600 15px Barlow,sans-serif;color:#fff;background:#4a3878;padding:13px 24px;border-radius:999px;text-decoration:none" style-hover="background:#2a1f42">I'll be there</a>
+    </div>
+    <img src="assets/poster-jep.jpg" alt="Recent club poster" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:18px;border:1px solid #e3d8f6;display:block">
+  </div>
+</div>
+
+</div>
+</div>
+
+</div>
+<p class="dv-next">Try next: "build out <a class="dv-oid" href="#1a">1a</a> as the full site" · "<a class="dv-oid" href="#1c">1c</a>'s hero with <a class="dv-oid" href="#1b">1b</a>'s event panel" · "more dark-and-cinematic options"</p>
+</section>
+
+</x-dc>
+</body>
+</html>

@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Join — Star Wars Club @ UW</title>
+<title>Join | Star Wars Club @ UW</title>
 <meta name="description" content="No dues, no application, no lore exam. Join the Discord, show up to something, and you're in.">
-<meta property="og:title" content="Join — Star Wars Club @ UW">
+<meta property="og:title" content="Join | Star Wars Club @ UW">
 <meta property="og:description" content="No dues, no application, no lore exam. Join the Discord, show up to something, and you're in.">
 <meta property="og:image" content="assets/logo.png">
 <meta property="og:type" content="website">
@@ -57,14 +57,14 @@
             <span class="step-num">02</span>
             <div>
               <div class="step-title">Come to anything</div>
-              <div class="step-body">Movie night, game night, lightsaber meet — pick whatever sounds fun.</div>
+              <div class="step-body">Movie night, game night, lightsaber meet. Pick whatever sounds fun.</div>
             </div>
           </div>
           <div class="step">
             <span class="step-num">03</span>
             <div>
               <div class="step-title">That's it</div>
-              <div class="step-body">You're a member. Bring a friend who's never seen a single film.</div>
+              <div class="step-body">You're a member. Bring a friend along.</div>
             </div>
           </div>
         </div>
@@ -80,12 +80,37 @@
         </div>
         <div class="panel-rule"></div>
         <div class="record-label" style="margin-bottom:12px">MAILING LIST // OPTIONAL</div>
-        <form class="mailing-form" action="#" method="post" onsubmit="return false;">
+        <!--
+          Mailing list setup (one-time, about 5 minutes):
+          Responses go to this Google Sheet, already in your Drive:
+          https://docs.google.com/spreadsheets/d/1Yl26kgDIJmkkxz22X2WCAX3cQXfK-3ZWH-rBzR0nKRk/edit
+
+          1. Go to forms.google.com and start a blank form. Add one "Short answer"
+             question (label it "Email"; under the ⋮ menu turn on "Response validation"
+             > "Email address" if you want extra checking).
+          2. Open the Responses tab, click the green Sheets icon, choose
+             "Select existing spreadsheet", and pick "SWC UW Mailing List".
+          3. Click Send (top right) > the link icon > copy the form URL. It looks like
+             https://docs.google.com/forms/d/e/AKfycb.../viewform
+             Copy the long ID between /d/e/ and /viewform. That's your FORM_ID below.
+          4. Open that live form, right-click > View Page Source, search for "entry."
+             right after your email question. Copy that number (e.g. entry.987654321).
+             That's your ENTRY_ID below.
+          5. Replace both placeholders below and every new submission appears as a
+             new row in the sheet automatically.
+        -->
+        <form class="mailing-form" id="mailing-form"
+              action="https://docs.google.com/forms/d/e/FORM_ID/formResponse"
+              method="POST" target="mailing-hidden-frame"
+              onsubmit="window.mailingSubmitted = true;">
           <label class="visually-hidden" for="mailing-email">Email address</label>
-          <input class="mailing-input" id="mailing-email" name="email" type="email" placeholder="you@uw.edu" autocomplete="email">
+          <input class="mailing-input" id="mailing-email" name="entry.ENTRY_ID" type="email" placeholder="you@uw.edu" autocomplete="email" required>
           <button class="mailing-btn" type="submit">Send</button>
         </form>
-        <p class="mailing-note">Not wired up yet — for now, join the Discord above.</p>
+        <iframe name="mailing-hidden-frame" id="mailing-hidden-frame" title="mailing list submit target" style="display:none"
+                onload="if(window.mailingSubmitted){window.mailingSubmitted=false;document.getElementById('mailing-form').reset();document.getElementById('mailing-status').hidden=false;}"></iframe>
+        <p class="mailing-note" id="mailing-status" hidden>Thanks, you're on the list.</p>
+        <p class="mailing-note">We'll only use this for meeting reminders.</p>
       </div>
     </div>
   </section>
